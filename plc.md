@@ -11,12 +11,12 @@
             <section id="main">
 			    <header>
 			    	<h1>Living Room</h1>
-			    	<p>21C</p>
+			    	<p id="temp">21.0C</p>
 			    </header>
 				<section>
 					<ul class="icons">
-						<li><a target="_new" href="https://github.com/koenkarsten" class="fa-plus">Increase</a></li>
-						<li><a target="_new" href="https://nl.linkedin.com/in/koenkarsten" class="fa-minus">Decrease</a></li>
+						<li><a href="#" class="fa-minus" onclick="decrease()">Decrease</a></li>
+						<li><a href="#" class="fa-plus" onclick="increase()">Increase</a></li>
 					</ul>
 				</section>
 			</section>        
@@ -24,9 +24,26 @@
 			</footer>        
         </div>
 		<script>
+			var current_temp = 21.0;
+
 			if ('addEventListener' in window) {
 				window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
 			}
+
+			function update_temp() {
+				document.getElementById("temp").innerHTML = current_temp + "C";
+			}
+
+			function decrease() {
+				current_temp = current_temp - 0.5;
+				update_temp();
+			}
+
+			function increase() {
+				current_temp = current_temp + 0.5;
+				update_temp();
+			}
+
 		</script>
 	</body>
 </html>
